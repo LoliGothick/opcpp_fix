@@ -104,7 +104,7 @@ private:    //  members
 //  performs a Start() if start_now == true
 template <typename T> inline basic_stopwatch<T>::basic_stopwatch(bool start_now)
     : m_activity("Stopwatch")
-    , m_lap(0)
+    , m_lap()
     , m_log(std::cout) {
     if (start_now)
     { Start(); }
@@ -113,7 +113,7 @@ template <typename T> inline basic_stopwatch<T>::basic_stopwatch(bool start_now)
 //  performs a start if start_now == true, suppress print by ctor("")
 template <typename T> inline basic_stopwatch<T>::basic_stopwatch(char const* activity, bool start_now)
     : m_activity(activity && activity[0] ? activity : nullptr)
-    , m_lap(0)
+    , m_lap()
     , m_log(std::cout) {
     if (start_now) {
         if (m_activity)
@@ -126,7 +126,7 @@ template <typename T> inline basic_stopwatch<T>::basic_stopwatch(char const* act
 //  set log output, optional printout, optional start
 template <typename T> inline basic_stopwatch<T>::basic_stopwatch(std::ostream& log, char const* activity, bool start_now)
     : m_activity(activity && activity[0] ? activity : nullptr)
-    , m_lap(0)
+    , m_lap()
     , m_log(log) {
     if (start_now) {
         if (m_activity)
